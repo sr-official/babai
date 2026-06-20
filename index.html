@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Father's Day, Babai</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #F7F4EC;
+    --bg-soft: #FBF9F4;
+    --ink: #2B241D;
+    --ink-soft: #6B6259;
+    --rule: #DFD6C5;
+    --honey: #B8763E;
+    --honey-deep: #8F5A2B;
+    --rose: #A85C5C;
+    --card: #FFFFFF;
+    --shadow: 0 1px 2px rgba(43,36,29,0.04), 0 8px 24px rgba(43,36,29,0.06);
+    --serif: 'Playfair Display', Georgia, serif;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  *{ box-sizing: border-box; margin:0; padding:0; }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+  }
+
+  html{ scroll-behavior: smooth; }
+
+  body{
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    background-image:
+      radial-gradient(ellipse at 20% 0%, rgba(184,118,62,0.05), transparent 50%),
+      radial-gradient(ellipse at 80% 100%, rgba(168,92,92,0.04), transparent 50%);
+  }
+
+  a{ color: inherit; }
+
+  /* ---------- Nav ---------- */
+  .topbar{
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    display:flex;
+    justify-content:center;
+    padding: 18px 16px 14px;
+    background: linear-gradient(var(--bg) 70%, transparent);
+  }
+  .tabs{
+    display:flex;
+    gap: 6px;
+    background: var(--bg-soft);
+    border: 1px solid var(--rule);
+    padding: 5px;
+    border-radius: 999px;
+    box-shadow: var(--shadow);
+    max-width: 100%;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .tabs::-webkit-scrollbar{ display:none; }
+  .tab{
+    appearance:none;
+    border:none;
+    background: transparent;
+    font-family: var(--sans);
+    font-size: 12.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    padding: 9px 18px;
+    border-radius: 999px;
+    cursor:pointer;
+    transition: color .25s ease, background .25s ease;
+    position: relative;
+    white-space: nowrap;
+    flex: 0 0 auto;
+  }
+  @media (max-width: 480px){
+    .tab{ font-size: 11px; padding: 8px 13px; }
+  }
+  .tab:hover{ color: var(--ink); }
+  .tab.active{
+    background: var(--ink);
+    color: var(--bg-soft);
+  }
+  .tab .dot{
+    display:inline-block;
+    width:5px; height:5px;
+    border-radius:50%;
+    background: var(--rose);
+    margin-left: 6px;
+    vertical-align: middle;
+    opacity: 0;
+    transition: opacity .3s ease;
+  }
+  .tab.has-dot .dot{ opacity: 1; }
+  .tab:focus-visible{ outline: 2px solid var(--honey); outline-offset: 3px; }
+
+  /* ---------- Sections ---------- */
+  .page{
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 10px 24px 10px;
+  }
+  .panel{
+    display:none;
+    animation: fadeUp .55s ease both;
+  }
+  .panel.active{ display:block; }
+  @keyframes fadeUp{
+    from{ opacity:0; transform: translateY(14px); }
+    to{ opacity:1; transform: translateY(0); }
+  }
+
+  .eyebrow{
+    text-align:center;
+    font-size: 11.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--honey-deep);
+    margin-bottom: 18px;
+    font-weight: 500;
+  }
+
+  .hero-title{
+    font-family: var(--serif);
+    text-align:center;
+    font-size: clamp(34px, 6vw, 54px);
+    font-weight: 500;
+    line-height: 1.12;
+    color: var(--ink);
+  }
+  .hero-title em{
+    font-style: italic;
+    color: var(--honey);
+    font-weight: 500;
+  }
+
+  .subtitle{
+    text-align:center;
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--ink-soft);
+    font-size: 16px;
+    margin-top: 14px;
+  }
+
+  /* ---------- Cake scene ---------- */
+  .cake-stage{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    margin-top: 46px;
+  }
+
+  .candle-wrap{
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 18px 26px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+  }
+  .candle-wrap:focus-visible{ outline: 2px solid var(--honey); outline-offset: 6px; border-radius: 12px; }
+
+  .flame{
+    width: 13px;
+    height: 22px;
+    background: radial-gradient(circle at 50% 75%, #FFE9B0 0%, #F7B843 35%, var(--honey) 65%, var(--honey-deep) 100%);
+    border-radius: 50% 50% 50% 50% / 65% 65% 35% 35%;
+    margin: 0 auto;
+    transform-origin: 50% 100%;
+    animation: flicker 2.4s ease-in-out infinite;
+    filter: drop-shadow(0 0 10px rgba(247,184,67,0.65));
+    transition: opacity .25s ease, transform .25s ease;
+  }
+  @keyframes flicker{
+    0%,100%{ transform: rotate(-2deg) scaleY(1); }
+    25%{ transform: rotate(2deg) scaleY(1.05); }
+    50%{ transform: rotate(-1deg) scaleY(0.96); }
+    75%{ transform: rotate(3deg) scaleY(1.02); }
+  }
+  .flame.out{
+    opacity: 0;
+    transform: scaleY(0.2);
+    animation: none;
+  }
+  .smoke{
+    width: 3px;
+    height: 0;
+    background: linear-gradient(to top, rgba(120,112,100,0.5), transparent);
+    margin: 0 auto;
+    opacity: 0;
+    border-radius: 2px;
+  }
+  .smoke.show{
+    animation: smokeRise 1.4s ease-out forwards;
+  }
+  @keyframes smokeRise{
+    0%{ height: 0; opacity: 0.6; transform: translateX(0) scaleX(1); }
+    60%{ opacity: 0.35; }
+    100%{ height: 46px; opacity: 0; transform: translateX(8px) scaleX(2.4); }
+  }
+
+  .wick{
+    width: 3px;
+    height: 26px;
+    background: #6B5C4A;
+    margin: 0 auto;
+  }
+
+  .cake{
+    margin-top: 2px;
+  }
+  .tier-top{
+    width: 88px;
+    height: 58px;
+    background: linear-gradient(160deg, #E8C690 0%, #D4A968 55%, #C4974F 100%);
+    border-radius: 4px;
+    margin: 0 auto;
+    position: relative;
+    box-shadow: inset 0 -8px 14px rgba(143,90,43,0.18), 0 6px 14px rgba(43,36,29,0.10);
+  }
+  .tier-bottom{
+    width: 132px;
+    height: 70px;
+    background: linear-gradient(160deg, #E8C690 0%, #D4A968 55%, #C4974F 100%);
+    border-radius: 4px;
+    margin: 0 auto;
+    margin-top: -3px;
+    position: relative;
+    box-shadow: inset 0 -10px 16px rgba(143,90,43,0.18), 0 8px 18px rgba(43,36,29,0.12);
+  }
+  .sprinkle{
+    position:absolute;
+    width:5px; height:5px;
+    border-radius:50%;
+    background: var(--rose);
+    opacity: 0.55;
+  }
+
+  .candle-hint{
+    margin-top: 28px;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    color: var(--ink-soft);
+    text-align:center;
+  }
+  .candle-hint .glyph{ color: var(--honey-deep); }
+
+  .gift-msg{
+    margin-top: 40px;
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-radius: 14px;
+    padding: 26px 30px;
+    box-shadow: var(--shadow);
+    text-align:center;
+  }
+  .gift-msg .label{
+    font-size: 10.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--honey-deep);
+    margin-bottom: 10px;
+    display:block;
+  }
+  .gift-msg p{
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 17px;
+    line-height: 1.55;
+    color: var(--ink);
+  }
+
+  .next-link{
+    display:block;
+    text-align:center;
+    margin: 36px auto 0;
+    width: fit-content;
+    font-size: 12.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border: 1px solid var(--ink);
+    background: transparent;
+    color: var(--ink);
+    padding: 13px 28px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background .25s ease, color .25s ease;
+    font-family: var(--sans);
+    font-weight: 500;
+  }
+  .next-link:hover{ background: var(--ink); color: var(--bg-soft); }
+  .next-link:focus-visible{ outline: 2px solid var(--honey); outline-offset: 3px; }
+
+  /* ---------- Wishes ---------- */
+  .wishes-head{
+    text-align:center;
+    margin-bottom: 36px;
+  }
+  .wishes-head .eyebrow{ margin-bottom: 10px; }
+  .wishes-head h2{
+    font-family: var(--serif);
+    font-size: clamp(28px, 5vw, 38px);
+    font-weight: 500;
+  }
+  .wishes-head h2 em{ color: var(--honey); font-style: italic; }
+  .rule{
+    width: 46px;
+    height: 1px;
+    background: var(--honey);
+    margin: 16px auto 0;
+  }
+
+  .wish-grid{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  @media (max-width: 560px){
+    .wish-grid{ grid-template-columns: 1fr; }
+  }
+  .wish-card{
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-radius: 12px;
+    padding: 22px;
+    box-shadow: var(--shadow);
+    position: relative;
+    overflow: hidden;
+  }
+  .wish-num{
+    position:absolute;
+    top: 6px;
+    right: 14px;
+    font-family: var(--serif);
+    font-size: 34px;
+    color: var(--rule);
+    font-weight: 500;
+    line-height:1;
+  }
+  .wish-card h3{
+    font-family: var(--serif);
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 1;
+  }
+  .wish-card p{
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    position: relative;
+    z-index: 1;
+  }
+
+  .gratitude{
+    margin-top: 56px;
+    text-align:center;
+  }
+  .gratitude .eyebrow{ margin-bottom: 18px; }
+  blockquote{
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(18px, 3.2vw, 23px);
+    line-height: 1.5;
+    color: var(--ink);
+    max-width: 520px;
+    margin: 0 auto;
+    position: relative;
+    padding: 0 8px;
+  }
+  blockquote::before{
+    content: '\201C';
+    position: absolute;
+    left: -2px;
+    top: -14px;
+    font-size: 40px;
+    color: var(--honey);
+    font-family: var(--serif);
+  }
+
+  .gratitude-list{
+    list-style:none;
+    margin-top: 40px;
+    display:flex;
+    flex-direction:column;
+    gap: 14px;
+  }
+  .gratitude-list li{
+    display:flex;
+    gap: 16px;
+    align-items:flex-start;
+    text-align:left;
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    padding: 18px 20px;
+    box-shadow: var(--shadow);
+  }
+  .plus{
+    flex: 0 0 auto;
+    width: 22px;
+    height: 22px;
+    border: 1px solid var(--rule);
+    border-radius: 5px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size: 13px;
+    color: var(--honey-deep);
+    margin-top: 2px;
+  }
+  .gratitude-list p{
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--ink);
+  }
+
+  /* ---------- Surprise / balloons ---------- */
+  .surprise-head{
+    text-align:center;
+    margin-bottom: 6px;
+  }
+  .surprise-head h2{
+    font-family: var(--serif);
+    font-size: clamp(24px, 4.5vw, 32px);
+    font-weight: 500;
+    color: var(--rose);
+  }
+  .pop-count{
+    text-align:center;
+    font-size: 11.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin: 14px 0 50px;
+  }
+  .pop-count span{ color: var(--honey-deep); font-weight: 600; }
+
+  .balloon-field{
+    position: relative;
+    height: 380px;
+    max-width: 460px;
+    margin: 0 auto;
+  }
+  .balloon-slot{
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .balloon-slot.pos-tl{ top:0; left:0; }
+  .balloon-slot.pos-tr{ top:0; right:0; }
+  .balloon-slot.pos-bl{ bottom:0; left:0; }
+  .balloon-slot.pos-br{ bottom:0; right:0; }
+
+  .balloon-btn{
+    background:none;
+    border:none;
+    cursor:pointer;
+    padding: 10px;
+    position: relative;
+  }
+  .balloon-btn:focus-visible{ outline: 2px solid var(--honey); outline-offset: 4px; border-radius: 50%; }
+
+  .balloon{
+    width: 72px;
+    height: 88px;
+    border-radius: 50% 50% 48% 48%;
+    position: relative;
+    animation: bob 3.4s ease-in-out infinite;
+    box-shadow: inset -10px -10px 18px rgba(0,0,0,0.12), inset 8px 10px 16px rgba(255,255,255,0.35);
+    transition: transform .15s ease;
+  }
+  .balloon::after{
+    content:'';
+    position:absolute;
+    bottom: -22px;
+    left: 50%;
+    width: 1.5px;
+    height: 22px;
+    background: var(--ink-soft);
+    transform: translateX(-50%);
+    opacity: 0.5;
+  }
+  .balloon-btn:hover .balloon{ transform: scale(1.04); }
+  @keyframes bob{
+    0%,100%{ transform: translateY(0) rotate(-1.5deg); }
+    50%{ transform: translateY(-10px) rotate(1.5deg); }
+  }
+  .b1 .balloon{ background: radial-gradient(circle at 32% 28%, #8FAE82, #5E7A52); animation-delay: 0s; }
+  .b2 .balloon{ background: radial-gradient(circle at 32% 28%, #8E8FD6, #5C5DA8); animation-delay: .3s; }
+  .b3 .balloon{ background: radial-gradient(circle at 32% 28%, #C98B96, #A85C5C); animation-delay: .6s; }
+  .b4 .balloon{ background: radial-gradient(circle at 32% 28%, #7FB6D9, #3F87B0); animation-delay: .9s; }
+
+  .balloon-btn.popped{ pointer-events: none; }
+  .balloon-btn.popped .balloon{
+    animation: pop .35s ease forwards;
+  }
+  @keyframes pop{
+    0%{ transform: scale(1); opacity:1; }
+    60%{ transform: scale(1.3); opacity: 0.5; }
+    100%{ transform: scale(0.2); opacity: 0; }
+  }
+
+  .reveal-word{
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 26px;
+    color: var(--honey-deep);
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity .5s ease, transform .5s ease;
+  }
+  .reveal-word.show{ opacity: 1; transform: translateY(0); }
+
+  .surprise-card{
+    margin: 28px auto 0;
+    max-width: 420px;
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-radius: 14px;
+    padding: 30px;
+    text-align:center;
+    box-shadow: var(--shadow);
+    opacity: 0;
+    transform: translateY(14px) scale(0.98);
+    transition: opacity .6s ease, transform .6s ease;
+    pointer-events: none;
+  }
+  .surprise-card.show{
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+  }
+  .surprise-card .confetti-row{
+    font-size: 20px;
+    margin-bottom: 12px;
+    letter-spacing: 8px;
+  }
+  .surprise-card h3{
+    font-family: var(--serif);
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 14px;
+  }
+  .surprise-card h3 em{ color: var(--honey); font-style: italic; }
+  .surprise-card p{
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--ink-soft);
+  }
+
+  /* ---------- Memories gallery ---------- */
+  .gallery-box{
+    margin-top: 48px;
+  }
+  .gallery-box:first-of-type{ margin-top: 8px; }
+
+  .gallery-box-head{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    gap: 12px;
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .gallery-box-head h3{
+    font-family: var(--serif);
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .gallery-count{
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    white-space: nowrap;
+  }
+
+  /* Responsive flex gallery: 1 per row (mobile) -> 2 (medium) -> 3 (laptop) -> 4 (large) */
+  .gallery-grid{
+    display:flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .gallery-thumb{
+    appearance:none;
+    border: 1px solid var(--rule);
+    background: var(--card);
+    padding: 0;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+    box-shadow: var(--shadow);
+    transition: transform .25s ease, box-shadow .25s ease;
+    display:flex;
+
+    /* default (small phones): 1 per row */
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+
+  /* medium phones / small tablets: 2 per row */
+  @media (min-width: 480px){
+    .gallery-thumb{
+      flex: 1 1 calc(50% - 6px);
+      max-width: calc(50% - 6px);
+    }
+  }
+
+  /* laptop: 3 per row */
+  @media (min-width: 860px){
+    .gallery-thumb{
+      flex: 1 1 calc(33.333% - 8px);
+      max-width: calc(33.333% - 8px);
+    }
+  }
+
+  /* large screens: 4 per row */
+  @media (min-width: 1180px){
+    .gallery-thumb{
+      flex: 1 1 calc(25% - 9px);
+      max-width: calc(25% - 9px);
+    }
+  }
+
+  .gallery-thumb:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(43,36,29,0.08), 0 14px 28px rgba(43,36,29,0.10);
+  }
+  .gallery-thumb:focus-visible{ outline: 2px solid var(--honey); outline-offset: 3px; }
+  .gallery-thumb img{
+    width: 100%;
+    object-fit: cover;
+    height: auto;
+    display:block;
+    transition: transform .35s ease;
+  }
+  .gallery-thumb:hover img{ transform: scale(1.06); }
+
+  /* ---------- Lightbox ---------- */
+  .lightbox{
+    position: fixed;
+    inset: 0;
+    background: rgba(20, 16, 12, 0.92);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    z-index: 200;
+    padding: 24px;
+  }
+  .lightbox.open{ display:flex; }
+  .lightbox-img{
+    max-width: min(90vw, 760px);
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  }
+  .lightbox-close{
+    position: absolute;
+    top: 18px;
+    right: 22px;
+    background: none;
+    border: none;
+    color: #F7F4EC;
+    font-size: 32px;
+    line-height: 1;
+    cursor: pointer;
+    padding: 6px 10px;
+  }
+  .lightbox-close:focus-visible, .lightbox-nav:focus-visible{ outline: 2px solid var(--honey); outline-offset: 2px; }
+  .lightbox-nav{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(247,244,236,0.12);
+    border: 1px solid rgba(247,244,236,0.3);
+    color: #F7F4EC;
+    font-size: 28px;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    cursor: pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition: background .2s ease;
+  }
+  .lightbox-nav:hover{ background: rgba(247,244,236,0.22); }
+  .lightbox-prev{ left: 18px; }
+  .lightbox-next{ right: 18px; }
+  .lightbox-counter{
+    position: absolute;
+    bottom: 22px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #E7E0D2;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  @media (max-width: 560px){
+    .lightbox-nav{ width: 40px; height: 40px; font-size: 22px; }
+    .lightbox-prev{ left: 8px; }
+    .lightbox-next{ right: 8px; }
+    .lightbox-close{ top: 10px; right: 14px; }
+  }
+
+  footer{
+    text-align:center;
+    margin: 50px 0px;
+    font-size: 11.5px;
+    letter-spacing: 0.08em;
+    color: var(--ink-soft);
+    text-transform: uppercase;
+  }
+  footer em{ font-style: italic; text-transform: none; color: var(--honey-deep); font-family: var(--serif); font-size: 13px; }
+
+  @media (max-width: 420px){
+    .balloon{ width: 60px; height: 74px; }
+    .wish-card{ padding: 18px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="topbar">
+  <div class="tabs" role="tablist" aria-label="Sections">
+    <button class="tab active" data-panel="cake" role="tab" aria-selected="true">The Cake</button>
+    <button class="tab" data-panel="wishes" role="tab" aria-selected="false">Wishes</button>
+    <button class="tab has-dot" data-panel="surprise" role="tab" aria-selected="false">Surprise<span class="dot"></span></button>
+    <button class="tab" data-panel="memories" role="tab" aria-selected="false">Memories</button>
+  </div>
+</nav>
+
+<main class="page">
+
+  <!-- ===== PANEL 1: THE CAKE ===== -->
+  <section class="panel active" id="panel-cake">
+    <p class="eyebrow">June 21 &middot; Father's Day</p>
+    <h1 class="hero-title">Happy Father's<br>Day, <em>Babai</em></h1>
+    <p class="subtitle">To the soul who wraps me in ultimate comfort, safety and love.</p>
+
+    <div class="cake-stage">
+      <button class="candle-wrap" id="candleBtn" aria-label="Blow out or relight the candle">
+        <div class="flame" id="flame"></div>
+        <div class="smoke" id="smoke"></div>
+        <div class="wick"></div>
+        <div class="cake">
+          <div class="tier-top">
+            <span class="sprinkle" style="top:14px;left:18px;"></span>
+            <span class="sprinkle" style="top:30px;left:40px;"></span>
+            <span class="sprinkle" style="top:18px;left:62px;"></span>
+          </div>
+          <div class="tier-bottom">
+            <span class="sprinkle" style="top:16px;left:22px;"></span>
+            <span class="sprinkle" style="top:34px;left:50px;"></span>
+            <span class="sprinkle" style="top:16px;left:80px;"></span>
+            <span class="sprinkle" style="top:34px;left:104px;"></span>
+          </div>
+        </div>
+      </button>
+      <p class="candle-hint" id="candleHint"><span class="glyph">&#10022;</span> touch the candle to blow out <span class="glyph">&#10022;</span></p>
+    </div>
+
+    <div class="gift-msg">
+      <span class="label">A Personal Message For You</span>
+      <p>Happy Father's Day, Babai! You are my safe haven in this unpredictable world. Even though I am your old child, you have a magical way of making me feel like a protected little toddler who has nothing to fear. Thank you for the laughs, for holding space for me when I am sad or angry, and for pouring your soul into guiding me. You make me feel incredibly alive and cherished.</p>
+    </div>
+
+    <button class="next-link" data-goto="wishes">Read My Wishes &rarr;</button>
+  </section>
+
+  <!-- ===== PANEL 2: WISHES ===== -->
+  <section class="panel" id="panel-wishes">
+    <div class="wishes-head">
+      <p class="eyebrow">From The Heart</p>
+      <h2>Wishes &amp; <em>Gratitude</em></h2>
+      <div class="rule"></div>
+    </div>
+
+    <div class="wish-grid">
+      <article class="wish-card">
+        <span class="wish-num">01</span>
+        <h3>Stay Blessed Always</h3>
+        <p>I pray to God that you always stay healthy, happy, and a beautiful human being . May He always surround you with people who truly love, protect, and care about you.</p>
+      </article>
+      <article class="wish-card">
+        <span class="wish-num">02</span>
+        <h3>An Unbroken Spirit</h3>
+        <p>​Life tests you with heavy struggles, but my heart constantly begs the Creator to stand firmly by your side. May He give you the grace to face every storm smartly, ensuring that absolutely nothing in this world can ever break your beautiful spirit.</p>
+      </article>
+      <article class="wish-card">
+        <span class="wish-num">03</span>
+        <h3>Your Big Dream</h3>
+        <p>I really want your dream of going abroad for higher studies to come true soon. I am always praying for your success, and I want nothing more than to see you achieve everything you've ever wished for.</p>
+      </article>
+      <article class="wish-card">
+        <span class="wish-num">04</span>
+        <h3>My Prayer as Your "Ammu"</h3>
+        <p>When you call me "Ammu," it’s my absolute favorite thing. It gives me a beautiful glimpse of what motherhood feels like. My ultimate prayer for you is: amr chele jate thake dudhe vate, may you always live in sweet peace, comfort, and abundance.</p>
+      </article>
+      <article class="wish-card">
+        <span class="wish-num">05</span>
+        <h3>A Heart Like a Garden</h3>
+        <p>​I pray that God always keeps your heart as beautiful as a green garden—a peaceful, happy place where butterflies can fly around safely and joyfully without any fear.</p>
+      </article>
+      <article class="wish-card">
+        <span class="wish-num">06</span>
+        <h3>Loving the World</h3>
+        <p>​I hope you can spend your whole life loving the Creator's creations simply for what they are. You have such a pure soul, Babai, and your ability to love keeps your world beautiful.</p>
+      </article>
+    </div>
+
+    <div class="gratitude">
+      <p class="eyebrow">Why I'm Grateful</p>
+      <blockquote>Sometimes you make me smile, and sometimes we fight or get sad but every single bit of it is beautiful because you love me like a father."</blockquote>
+
+      <ul class="gratitude-list">
+        <li>
+          <span class="plus">+</span>
+          <p>For the way you constantly motivate me and guide me whenever I feel lost or confused.</p>
+        </li>
+        <li>
+          <span class="plus">+</span>
+          <p>For all the laughs we share, and even the moments we cry or get angry, because it shows how deep and real our bond is.</p>
+        </li>
+        <li>
+          <span class="plus">+</span>
+          <p>For the soft magic of calling me "Ammu." It makes me feel so incredibly special every single time.</p>
+        </li>
+        <li>
+          <span class="plus">+</span>
+          <p>For letting me act like a little toddler around you, knowing that I am completely safe under your wings.</p>
+        </li>
+        <li>
+          <span class="plus">+</span>
+          <p>For treating me as your elder child, sharing your thoughts with me, and always wanting to see me happy.</p>
+        </li>
+      </ul>
+    </div>
+
+    <button class="next-link" data-goto="surprise">One Last Surprise &rarr;</button>
+  </section>
+
+  <!-- ===== PANEL 3: SURPRISE ===== -->
+  <section class="panel" id="panel-surprise">
+    <div class="surprise-head">
+      <p class="eyebrow">Last One, Promise</p>
+      <h2>Pop all 4 balloons</h2>
+    </div>
+    <p class="pop-count"><span id="popCount">0</span> / 4 popped</p>
+
+    <div class="balloon-field" id="balloonField">
+      <div class="balloon-slot pos-tl">
+        <button class="balloon-btn b1" data-word="You" aria-label="Pop green balloon">
+          <div class="balloon"></div>
+        </button>
+      </div>
+      <div class="balloon-slot pos-tr">
+        <button class="balloon-btn b2" data-word="are" aria-label="Pop purple balloon">
+          <div class="balloon"></div>
+        </button>
+      </div>
+      <div class="balloon-slot pos-bl">
+        <button class="balloon-btn b3" data-word="my" aria-label="Pop rose balloon">
+          <div class="balloon"></div>
+        </button>
+      </div>
+      <div class="balloon-slot pos-br">
+        <button class="balloon-btn b4" data-word="hero" aria-label="Pop blue balloon">
+          <div class="balloon"></div>
+        </button>
+      </div>
+
+      <!-- revealed words sit on top in the same quadrant positions -->
+      <div class="balloon-slot pos-tl" style="pointer-events:none;"><span class="reveal-word" id="word1">You</span></div>
+      <div class="balloon-slot pos-tr" style="pointer-events:none;"><span class="reveal-word" id="word2">are</span></div>
+      <div class="balloon-slot pos-bl" style="pointer-events:none;"><span class="reveal-word" id="word3">my</span></div>
+      <div class="balloon-slot pos-br" style="pointer-events:none;"><span class="reveal-word" id="word4">hero</span></div>
+    </div>
+
+    <div class="surprise-card" id="surpriseCard">
+      <div class="confetti-row">&#127881; &#127880; &#127874; &#127881;</div>
+      <h3>You are my <em>Hero</em></h3>
+      <p>Thank you for being my greatest guide, my safe place, and my favourite person, Babai. Happy Father's Day! &#129509;</p>
+    </div>
+
+    <button class="next-link" data-goto="memories">See Our Memories &rarr;</button>
+  </section>
+
+  <!-- ===== PANEL 4: MEMORIES ===== -->
+  <section class="panel" id="panel-memories">
+    <div class="wishes-head">
+      <p class="eyebrow">Looking Back</p>
+      <h2>A Few <em>Memories</em></h2>
+      <div class="rule"></div>
+    </div>
+
+    <div class="gallery-box">
+      <div class="gallery-box-head">
+        <h3>Moments</h3>
+        <span class="gallery-count">5 photos</span>
+      </div>
+      <div class="gallery-grid" data-lightbox-group="memories">
+        <button class="gallery-thumb" data-src="images/moment-1.jpeg" aria-label="Open photo 1 of Memories">
+          <img src="images/moment-1.jpeg" alt="Moment photo 1" loading="lazy">
+        </button>
+        <button class="gallery-thumb" data-src="images/moment-2.jpeg" aria-label="Open photo 2 of Memories">
+          <img src="images/moment-2.jpeg" alt="Moment photo 2" loading="lazy">
+        </button>
+        <button class="gallery-thumb" data-src="images/moment-3.jpeg" aria-label="Open photo 3 of Memories">
+          <img src="images/moment-3.jpeg" alt="Moment photo 3" loading="lazy">
+        </button>
+        <button class="gallery-thumb" data-src="images/moment-4.jpeg" aria-label="Open photo 4 of Memories">
+          <img src="images/moment-4.jpeg" alt="Moment photo 4" loading="lazy">
+        </button>
+        <button class="gallery-thumb" data-src="images/moment-5.jpeg" aria-label="Open photo 5 of Memories">
+          <img src="images/moment-5.jpeg" alt="Moment photo 5" loading="lazy">
+        </button>
+      </div>
+    </div>
+
+    <div class="gallery-box">
+      <div class="gallery-box-head">
+        <h3>My Adorable Son</h3>
+        <span class="gallery-count">10 photos</span>
+      </div>
+      <div class="gallery-grid" data-lightbox-group="son">
+        <button class="gallery-thumb" data-src="images/son-1.jpeg" aria-label="Open photo 1 of My Adorable Son">
+          <img src="images/son-1.jpeg" alt="My Adorable Son photo 1" loading="lazy">
+        </button>
+        <button class="gallery-thumb" data-src="images/son-2.jpeg" aria-label="Open photo 2 of My Adorable Son">
+          <img src="images/son-2.jpeg" alt="My Adorable Son photo 2" loading="lazy">
+        </button>
+        <button class="gallery-thumb" data-src="images/son-3.jpeg" aria-label="Open photo 3 of My Adorable Son">
+          <img src="images/son-3.jpeg" alt="My Adorable Son photo 3" loading="lazy">
+        </button>
+        <button class="gallery-thumb" data-src="images/son-4.jpeg" aria-label="Open photo 4 of My Adorable Son">
+          <img src="images/son-4.jpeg" alt="My Adorable Son photo 4" loading="lazy">
+        </button>
+        <button class="gallery-thumb" data-src="images/son-5.jpeg" aria-label="Open photo 5 of My Adorable Son">
+          <img src="images/son-5.jpeg" alt="My Adorable Son photo 5" loading="lazy">
+        </button>
+        <button class="gallery-thumb" data-src="images/son-6.jpeg" aria-label="Open photo 6 of My Adorable Son">
+          <img src="images/son-6.jpeg" alt="My Adorable Son photo 6" loading="lazy">
+        </button>
+        <button class="gallery-thumb" data-src="images/son-7.jpeg" aria-label="Open photo 7 of My Adorable Son">
+          <img src="images/son-7.jpeg" alt="My Adorable Son photo 7" loading="lazy">
+        </button>
+        <button class="gallery-thumb" data-src="images/son-8.jpeg" aria-label="Open photo 8 of My Adorable Son">
+          <img src="images/son-8.jpeg" alt="My Adorable Son photo 8" loading="lazy">
+        </button>
+        <button class="gallery-thumb" data-src="images/son-9.jpeg" aria-label="Open photo 9 of My Adorable Son">
+          <img src="images/son-9.jpeg" alt="My Adorable Son photo 9" loading="lazy">
+        </button>
+        <button class="gallery-thumb" data-src="images/son-10.jpeg" aria-label="Open photo 10 of My Adorable Son">
+          <img src="images/son-10.jpeg" alt="My Adorable Son photo 10" loading="lazy">
+        </button>
+      </div>
+    </div>
+
+    <div class="gallery-box">
+      <div class="gallery-box-head">
+        <h3>Your Beloved Mother</h3>
+        <span class="gallery-count">8 photos</span>
+      </div>
+      <div class="gallery-grid" data-lightbox-group="mother">
+        <button class="gallery-thumb" data-src="images/mother-1.jpeg" aria-label="Open photo 1 of Your Beloved Mother">
+          <img src="images/mother-1.jpeg" alt="Your Beloved Mother photo 1" loading="lazy">
+        </button>
+        <button class="gallery-thumb" data-src="images/mother-2.jpeg" aria-label="Open photo 2 of Your Beloved Mother">
+          <img src="images/mother-2.jpeg" alt="Your Beloved Mother photo 2" loading="lazy">
+        </button>
+        <button class="gallery-thumb" data-src="images/mother-3.jpeg" aria-label="Open photo 3 of Your Beloved Mother">
+          <img src="images/mother-3.jpeg" alt="Your Beloved Mother photo 3" loading="lazy">
+        </button>
+        <button class="gallery-thumb" data-src="images/mother-4.jpeg" aria-label="Open photo 4 of Your Beloved Mother">
+          <img src="images/mother-4.jpeg" alt="Your Beloved Mother photo 4" loading="lazy">
+        </button>
+        <button class="gallery-thumb" data-src="images/mother-5.jpeg" aria-label="Open photo 5 of Your Beloved Mother">
+          <img src="images/mother-5.jpeg" alt="Your Beloved Mother photo 5" loading="lazy">
+        </button>
+        <button class="gallery-thumb" data-src="images/mother-6.jpeg" aria-label="Open photo 6 of Your Beloved Mother">
+          <img src="images/mother-6.jpeg" alt="Your Beloved Mother photo 6" loading="lazy">
+        </button>
+        <button class="gallery-thumb" data-src="images/mother-7.jpeg" aria-label="Open photo 7 of Your Beloved Mother">
+          <img src="images/mother-7.jpeg" alt="Your Beloved Mother photo 7" loading="lazy">
+        </button>
+        <button class="gallery-thumb" data-src="images/mother-8.jpeg" aria-label="Open photo 8 of Your Beloved Mother">
+          <img src="images/mother-8.jpeg" alt="Your Beloved Mother photo 8" loading="lazy">
+        </button>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- Lightbox for viewing gallery images full-size -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close photo viewer">&times;</button>
+  <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous photo">&#8249;</button>
+  <img class="lightbox-img" id="lightboxImg" src="" alt="">
+  <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next photo">&#8250;</button>
+  <p class="lightbox-counter" id="lightboxCounter"></p>
+</div>
+
+<footer>
+  made with love for <em>Babai</em>
+</footer>
+
+<script>
+  // ---- Tab navigation ----
+  const tabs = document.querySelectorAll('.tab');
+  const panels = document.querySelectorAll('.panel');
+
+  function showPanel(name){
+    panels.forEach(p => p.classList.toggle('active', p.id === 'panel-' + name));
+    tabs.forEach(t => {
+      const isActive = t.dataset.panel === name;
+      t.classList.toggle('active', isActive);
+      t.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      if(isActive) t.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => showPanel(tab.dataset.panel));
+  });
+
+  document.querySelectorAll('[data-goto]').forEach(btn => {
+    btn.addEventListener('click', () => showPanel(btn.dataset.goto));
+  });
+
+  // ---- Candle interaction ----
+  const candleBtn = document.getElementById('candleBtn');
+  const flame = document.getElementById('flame');
+  const smoke = document.getElementById('smoke');
+  const candleHint = document.getElementById('candleHint');
+  let lit = true;
+
+  candleBtn.addEventListener('click', () => {
+    lit = !lit;
+    if(!lit){
+      flame.classList.add('out');
+      smoke.classList.remove('show');
+      void smoke.offsetWidth; // restart animation
+      smoke.classList.add('show');
+      candleHint.innerHTML = '<span class="glyph">&#10022;</span> touch the candle to relight <span class="glyph">&#10022;</span>';
+    } else {
+      flame.classList.remove('out');
+      smoke.classList.remove('show');
+      candleHint.innerHTML = '<span class="glyph">&#10022;</span> touch the candle to blow out <span class="glyph">&#10022;</span>';
+    }
+  });
+
+  // ---- Balloon pop ----
+  const balloonBtns = document.querySelectorAll('.balloon-btn');
+  const popCountEl = document.getElementById('popCount');
+  const surpriseCard = document.getElementById('surpriseCard');
+  const surpriseTab = document.querySelector('.tab[data-panel="surprise"]');
+  let poppedCount = 0;
+
+  const wordMap = { 1: 'word1', 2: 'word2', 3: 'word3', 4: 'word4' };
+
+  balloonBtns.forEach((btn, i) => {
+    btn.addEventListener('click', () => {
+      if(btn.classList.contains('popped')) return;
+      btn.classList.add('popped');
+      poppedCount++;
+      popCountEl.textContent = poppedCount;
+
+      const idx = i + 1;
+      const wordEl = document.getElementById(wordMap[idx]);
+      setTimeout(() => wordEl.classList.add('show'), 200);
+
+      if(poppedCount === 4){
+        setTimeout(() => {
+          surpriseCard.classList.add('show');
+          surpriseTab.classList.remove('has-dot');
+        }, 600);
+      }
+    });
+  });
+
+  // ---- Memories lightbox ----
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const lightboxCounter = document.getElementById('lightboxCounter');
+  const lightboxClose = document.getElementById('lightboxClose');
+  const lightboxPrev = document.getElementById('lightboxPrev');
+  const lightboxNext = document.getElementById('lightboxNext');
+
+  let currentGroup = [];
+  let currentIndex = 0;
+
+  function openLightbox(groupEl, index){
+    currentGroup = Array.from(groupEl.querySelectorAll('.gallery-thumb'));
+    currentIndex = index;
+    renderLightbox();
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    lightboxClose.focus();
+  }
+
+  function renderLightbox(){
+    const btn = currentGroup[currentIndex];
+    const src = btn.dataset.src;
+    const alt = btn.querySelector('img').alt;
+    lightboxImg.src = src;
+    lightboxImg.alt = alt;
+    lightboxCounter.textContent = (currentIndex + 1) + ' / ' + currentGroup.length;
+  }
+
+  function closeLightbox(){
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function showNext(){
+    currentIndex = (currentIndex + 1) % currentGroup.length;
+    renderLightbox();
+  }
+  function showPrev(){
+    currentIndex = (currentIndex - 1 + currentGroup.length) % currentGroup.length;
+    renderLightbox();
+  }
+
+  document.querySelectorAll('.gallery-grid').forEach(grid => {
+    grid.querySelectorAll('.gallery-thumb').forEach((thumb, idx) => {
+      thumb.addEventListener('click', () => openLightbox(grid, idx));
+    });
+  });
+
+  lightboxClose.addEventListener('click', closeLightbox);
+  lightboxNext.addEventListener('click', showNext);
+  lightboxPrev.addEventListener('click', showPrev);
+
+  lightbox.addEventListener('click', (e) => {
+    if(e.target === lightbox) closeLightbox();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if(!lightbox.classList.contains('open')) return;
+    if(e.key === 'Escape') closeLightbox();
+    if(e.key === 'ArrowRight') showNext();
+    if(e.key === 'ArrowLeft') showPrev();
+  });
+</script>
+
+</body>
+</html>
